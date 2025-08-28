@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('compile') {
             steps {
-                checkout scm
+                echo"file compiling"
                 sh 'mvn compile'
             }
         }
