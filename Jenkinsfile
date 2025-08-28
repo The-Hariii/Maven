@@ -2,16 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('compile') {
             steps {
-                echo "Hello World stage"
-                sh 'hostname'
+                sh 'mvn compile'
             }
         }
         stage('Test') {
             steps {
-                echo "Hello test stage"
-                sh 'pwd'
+                sh 'mvn test'
+            }
+        }
+          stage('package') {
+            steps {
+                sh 'mvn package'
             }
         }
         stage('deploy') {
