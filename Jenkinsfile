@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('compile') {
             steps {
+                checkout scm
                 sh 'mvn compile'
             }
         }
@@ -19,8 +20,8 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                echo "Hello deploy stage"
-                sh 'date'
+                echo "Running HelloWorld Java Program"
+                sh 'java -cp target/classesHelloWorld'
             }
         }
     }
